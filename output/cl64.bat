@@ -1,0 +1,44 @@
+@echo off
+setlocal
+set CommandPromptType=Native
+set DevEnvDir=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\
+set ExtensionSdkDir=C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10\ExtensionSDKs
+set Framework40Version=v4.0
+set FrameworkDir=C:\Windows\Microsoft.NET\Framework64\
+set FrameworkDir64=C:\Windows\Microsoft.NET\Framework64\
+set FrameworkVersion=v4.0.30319
+set FrameworkVersion64=v4.0.30319
+set INCLUDE=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared;C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt
+set LIB=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\lib\x64;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64;C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\ucrt\x64;C:\Program Files (x86)\Windows Kits\10\lib\10.0.19041.0\um\x64
+set LIBPATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\lib\x64;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\lib\x86\store\references;C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.19041.0;C:\Program Files (x86)\Windows Kits\10\References\10.0.19041.0;C:\Windows\Microsoft.NET\Framework64\v4.0.30319
+set NETFXSDKDir=C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\
+set Platform=x64
+set UCRTVersion=10.0.19041.0
+set UniversalCRTSdkDir=C:\Program Files (x86)\Windows Kits\10\
+set VCIDEInstallDir=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\VC\
+set VCINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\
+set VCToolsInstallDir=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\
+set VCToolsRedistDir=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\14.29.30133\
+set VCToolsVersion=14.29.30133
+set VisualStudioVersion=16.0
+set VS160COMNTOOLS=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\
+set VSCMD_ARG_app_plat=Desktop
+set VSCMD_ARG_HOST_ARCH=x64
+set VSCMD_ARG_TGT_ARCH=x64
+set VSCMD_VER=16.11.3
+set VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\
+set WindowsLibPath=C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.19041.0;C:\Program Files (x86)\Windows Kits\10\References\10.0.19041.0
+set WindowsSdkBinPath=C:\Program Files (x86)\Windows Kits\10\bin\
+set WindowsSdkDir=C:\Program Files (x86)\Windows Kits\10\
+set WindowsSDKLibVersion=10.0.19041.0\
+set WindowsSdkVerBinPath=C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\
+set WindowsSDKVersion=10.0.19041.0\
+set WindowsSDK_ExecutablePath_x64=C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\x64\
+set WindowsSDK_ExecutablePath_x86=C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\
+set __devinit_path=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\devinit\devinit.exe
+set __DOTNET_ADD_64BIT=1
+set __DOTNET_PREFERRED_BITNESS=64
+set __VSCMD_PREINIT_PATH=C:\Utilities\cpp compilers;;C:\Program Files\OpenSSH-Win64;C:\ProgramData\chocolatey\bin;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Haskell\bin;C:\Program Files\Haskell Platform\8.6.5\lib\extralibs\bin;C:\Program Files\Haskell Platform\8.6.5\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Calibre2\;C:\Program Files\SumatraPDF;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files\Java\jdk-11.0.5\bin;C:\Program Files\Haskell Platform\8.6.5\mingw\bin;C:\Program Files\Tesseract-OCR;C:\Go\bin;C:\Program Files\SumatraPDF;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Oracle\VirtualBox;C:\HashiCorp\Vagrant\bin;C:\Program Files\LLVM\bin;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\SDL2_dev\bin;D:\Downloads\Utilities\arduino-cli;D:\Downloads\Utilities\ffmpeg;D:\Downloads\Utilities\destreamer;D:\Users\joshu\Downloads\Utilities\netcat-win32-1.12;D:\Users\joshu\Downloads\Utilities\john-1.9.0-jumbo-1-win64\run;D:\Users\joshu\Downloads\Utilities\dnSpy-net472;D:\Downloads\Utilities\wget;D:\Downloads\Utilities\cloc-1.90;D:\Downloads\Utilities\4coder;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\joshu\AppData\Roaming\cabal\bin;C:\Users\joshu\AppData\Roaming\local\bin;C:\Users\joshu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\joshu\AppData\Local\Programs\Python\Python39\;C:\Users\joshu\AppData\Local\Microsoft\WindowsApps;C:\Users\joshu\AppData\Local\atom\bin;C:\Users\joshu\go\bin;C:\tools\neovim\Neovim\bin;C:\Users\joshu\AppData\Roaming\npm;C:\Users\joshu\AppData\Roaming\Composer\vendor\bin
+set __VSCMD_script_err_count=0
+set PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\\Extensions\Microsoft\IntelliCode\CLI;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\VC\VCPackages;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\bin\Roslyn;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\x64\;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\devinit;C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64;C:\Program Files (x86)\Windows Kits\10\bin\x64;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\\MSBuild\Current\Bin;C:\Windows\Microsoft.NET\Framework64\v4.0.30319;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\;;%PATH%
+call "cl.exe" %*
