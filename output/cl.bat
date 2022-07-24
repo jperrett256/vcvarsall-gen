@@ -1,1 +1,1 @@
-call "%~dp0cl32.bat" %*
+@call "%~dp0cl64.bat" %*
