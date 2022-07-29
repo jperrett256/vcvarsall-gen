@@ -9,12 +9,12 @@ parser.add_argument('--output', '-o', action='store', dest='output', default='cl
 args = parser.parse_args()
 
 
-with Popen('set', stdout=PIPE, shell=True) as proc:
+with Popen('set', stdout=PIPE, stderr=PIPE, shell=True) as proc:
 	stdout_data, stderr_data = proc.communicate()
 	assert(not stderr_data)
 	vars_initial = stdout_data.decode('utf-8')
 
-with Popen('vcvarsall {} && set'.format(args.arch), stdout=PIPE, shell=True) as proc:
+with Popen('vcvarsall {} && set'.format(args.arch), stdout=PIPE, stderr=PIPE, shell=True) as proc:
 	stdout_data, stderr_data = proc.communicate()
 	assert(not stderr_data)
 	vars_final = stdout_data.decode('utf-8')
@@ -28,6 +28,7 @@ vars_final = list(map(lambda x: x.strip(), vars_final))
 # skip over vcvarsall output
 start = 0
 while True:
+	assert(start < len(vars_final))
 	if '=' in vars_final[start]:
 		break
 	start += 1
@@ -76,9 +77,18 @@ while i < len(vars_initial) and j < len(vars_final):
 			assert(value_a in value_b)
 			# we express the new path in terms of the old path so the script
 			# doesn't need to be rerun every time the user updates their path
-			assert(len(value_a) > 0 and value_a[-1] != ';')
+			assert(len(value_a) > 0)
 			new_path = value_b.replace(value_a, '%PATH%')
-			assert('%PATH%' in new_path)
+			
+			# check semicolons exist where they should
+			old_path_index = new_path.find('%PATH%')
+			assert(old_path_index >= 0)
+			assert(old_path_index + len('%PATH%') <= len(new_path))
+			if (old_path_index > 0):
+				assert(new_path[old_path_index - 1] == ';')
+			elif (old_path_index + len('%PATH%') < len(new_path)):
+				assert(new_path[old_path_index + len('%PATH%')] == ';')
+
 			vars_added.append('PATH=' + new_path)
 
 			i += 1
