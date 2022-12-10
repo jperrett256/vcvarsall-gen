@@ -4,7 +4,7 @@ from subprocess import Popen, PIPE
 
 parser = argparse.ArgumentParser(description='Generate fast cl.bat file.')
 parser.add_argument('arch', choices=['x86', 'amd64'])
-parser.add_argument('--output', '-o', action='store', dest='output', default='cl.bat')
+parser.add_argument('output', metavar='path')
 
 args = parser.parse_args()
 
@@ -113,8 +113,5 @@ assert(len(vars_added) > 0 and new_path)
 assert(not os.path.isfile(args.output))
 
 with open(args.output, 'w') as f:
-	f.write('@echo off\n')
-	f.write('setlocal\n')
 	for var in vars_added:
 		f.write('set {}\n'.format(var))
-	f.write('call "cl.exe" %*\n')
