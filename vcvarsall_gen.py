@@ -113,5 +113,6 @@ assert(len(vars_added) > 0 and new_path)
 assert(not os.path.isfile(args.output))
 
 with open(args.output, 'w') as f:
+	f.write('@echo off\n')
 	for var in vars_added:
 		f.write('set {}\n'.format(var))

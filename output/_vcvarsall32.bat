@@ -1,3 +1,4 @@
+@echo off
 set CommandPromptType=Native
 set DevEnvDir=C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\
 set ExtensionSdkDir=C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10\ExtensionSDKs
