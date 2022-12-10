@@ -17,6 +17,6 @@ Expects `vcvarsall.bat` to be available on path. (Can alternatively modify the s
 
 Takes the target architecture and the output file path as arguments. For example:
 ```bash
-python cl_gen.py x86 output/_vcvarsall32.bat
-python cl_gen.py amd64 output/_vcvarsall64.bat
+python vcvarsall_gen.py x86 output/_vcvarsall32.bat
+python vcvarsall_gen.py amd64 output/_vcvarsall64.bat
 ```
