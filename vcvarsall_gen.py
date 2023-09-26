@@ -55,8 +55,8 @@ while i < len(vars_initial) and j < len(vars_final):
 		i += 1
 		j += 1
 	else:
-		var_a = vars_initial[i].split('=')
-		var_b = vars_final[j].split('=')
+		var_a = vars_initial[i].split('=', 1)
+		var_b = vars_final[j].split('=', 1)
 
 		assert(len(var_a) == 2)
 		assert(len(var_b) == 2)
